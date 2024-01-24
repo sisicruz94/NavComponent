@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productosFragment">
+
+    <fragment
+        android:id="@+id/pedidoFragment"
+        android:name="com.example.navcomponent.PedidoFragment"
+        android:label="fragment_pedido"
+        tools:layout="@layout/fragment_pedido">
+        <action
+            android:id="@+id/action_pedidoFragment_to_resumenPedidoFragment"
+            app:destination="@id/resumenPedidoFragment" />
+        <argument
+            android:name="comida"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/productosFragment"
+        android:name="com.example.navcomponent.ProductosFragment"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos">
+        <action
+            android:id="@+id/action_productosFragment_to_pedidoFragment"
+            app:destination="@id/pedidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumenPedidoFragment"
+        android:name="com.example.navcomponent.ResumenPedidoFragment"
+        android:label="fragment_resumen_pedido"
+        tools:layout="@layout/fragment_resumen_pedido">
+        <argument
+            android:name="comida"
+            app:argType="string" />
+        <argument
+            android:name="cantidad"
+            app:argType="integer" />
+        <argument
+            android:name="horario"
+            app:argType="string" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resumenPedidoFragment_to_confirmacionFragment"
+            app:destination="@id/confirmacionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmacionFragment"
+        android:name="com.example.navcomponent.ConfirmacionFragment"
+        android:label="fragment_confirmacion"
+        tools:layout="@layout/fragment_confirmacion" />
+</navigation>
